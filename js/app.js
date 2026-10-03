@@ -313,11 +313,6 @@ function renderCategoriesNav() {
       state.activeCategory = btn.getAttribute("data-category");
       renderCategoriesNav();
       renderProducts();
-      // Scroll to shop section smoothly
-      const shopSec = document.getElementById("shop");
-      if (shopSec && window.scrollY > shopSec.offsetTop) {
-        shopSec.scrollIntoView({ behavior: "smooth" });
-      }
     });
   });
 }

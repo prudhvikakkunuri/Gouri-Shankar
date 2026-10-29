@@ -63,7 +63,9 @@
 }
 
 /* Base Reset */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -359,25 +361,36 @@ button {
 }
 
 @keyframes badgePop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.35); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
-/* Secondary Navigation Bar */
+/* Catalog Category Filter Tabs (Placed directly above the products) */
 .category-nav-bar {
-  background: var(--bg-surface);
-  border-bottom: 1px solid var(--border-light);
+  background: transparent;
+  border-bottom: none;
+  margin-bottom: 24px;
 }
 
 .cat-nav-inner {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
-  padding: 10px 0;
+  padding: 4px 0 10px;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
+
 .cat-nav-inner::-webkit-scrollbar {
   display: none;
 }
@@ -385,19 +398,23 @@ button {
 .cat-tab {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: var(--radius-full);
   font-size: 13.5px;
   font-weight: 600;
-  color: var(--text-muted);
-  background: var(--bg-surface-alt);
+  color: var(--text-main);
+  background: #ffffff;
   white-space: nowrap;
   transition: all var(--transition-fast);
-  border: 1px solid transparent;
+  border: 1.5px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  user-select: none;
 }
 
 .cat-tab:hover {
+  border-color: var(--primary-600);
   color: var(--primary-700);
   background: var(--primary-50);
 }
@@ -406,19 +423,21 @@ button {
   background: var(--primary-700);
   color: #ffffff;
   border-color: var(--primary-800);
-  box-shadow: 0 2px 8px rgba(20, 83, 45, 0.2);
+  box-shadow: 0 4px 14px rgba(20, 83, 45, 0.25);
 }
 
 .cat-tab .tab-count {
   font-size: 11px;
-  padding: 1px 6px;
+  font-weight: 700;
+  padding: 2px 7px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.08);
+  background: #f1f5ef;
+  color: var(--primary-800);
 }
 
 .cat-tab.active .tab-count {
-  background: rgba(255, 255, 255, 0.25);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
 }
 
 /* ==========================================================================
@@ -435,7 +454,10 @@ button {
 .hero-section::before {
   content: '';
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
@@ -1066,8 +1088,15 @@ button {
 }
 
 @keyframes splitBtnPop {
-  0% { transform: scale(0.92); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.92);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Two split parts: Left (-) and Right (+) taking 50% width each */
@@ -1139,8 +1168,13 @@ button {
 }
 
 @keyframes badgePop {
-  0% { transform: translate(-50%, -50%) scale(0.7); }
-  100% { transform: translate(-50%, -50%) scale(1); }
+  0% {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 .badge-num {
@@ -1710,7 +1744,10 @@ button {
    ========================================================================== */
 .cart-backdrop {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(4px);
   z-index: 1000;
@@ -1828,7 +1865,8 @@ button {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  min-height: 0; /* Ensures proper scroll shrinking in flexbox */
+  min-height: 0;
+  /* Ensures proper scroll shrinking in flexbox */
 }
 
 .cart-section-title {
@@ -2108,9 +2146,21 @@ button {
 }
 
 @keyframes inputShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .cart-summary-line {
@@ -2172,7 +2222,10 @@ button {
    ========================================================================== */
 .modal-backdrop {
   position: fixed;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(5px);
   z-index: 1050;
@@ -2333,9 +2386,20 @@ button {
 }
 
 @keyframes pulseDot {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
 }
 
 /* Toast Notifications */
@@ -2366,8 +2430,15 @@ button {
 }
 
 @keyframes toastSlide {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ==========================================================================
@@ -2448,7 +2519,9 @@ button {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ==========================================================================
@@ -2459,34 +2532,43 @@ button {
     grid-template-columns: 1fr;
     text-align: center;
   }
+
   .hero-pill-badge {
     margin: 0 auto 20px;
   }
+
   .hero-desc {
     margin: 0 auto 28px;
   }
+
   .hero-cta-group {
     justify-content: center;
   }
+
   .hero-stats-row {
     max-width: 500px;
     margin: 0 auto;
   }
+
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .reviews-grid {
     grid-template-columns: 1fr;
   }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 768px) {
+
   /* Layout & Container */
   .container {
     padding-left: 12px;
@@ -2497,11 +2579,13 @@ button {
     font-size: 11px;
     padding: 6px 0;
   }
+
   .announcement-content {
     justify-content: center;
     gap: 6px;
     text-align: center;
   }
+
   .announcement-links {
     display: none;
   }
@@ -2647,50 +2731,68 @@ button {
     font-size: 13px;
   }
 
-  /* Secondary Horizontal Category Tabs */
+  /* Category filter pills directly above products on mobile */
+  .category-nav-bar {
+    margin-bottom: 16px;
+    margin-top: -6px;
+  }
+
   .cat-nav-inner {
     gap: 8px;
-    padding: 6px 12px 8px;
+    padding: 2px 0 8px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
+
   .cat-nav-inner::-webkit-scrollbar {
     display: none;
   }
+
   .cat-tab {
-    padding: 6px 14px;
-    font-size: 12.5px;
+    padding: 7px 14px;
+    font-size: 12px;
     white-space: nowrap;
     flex-shrink: 0;
+  }
+
+  .cat-tab .tab-count {
+    font-size: 10.5px;
+    padding: 1px 5px;
   }
 
   /* Hero Section */
   .hero-section {
     padding: 30px 0 40px;
   }
+
   .hero-title {
     font-size: 26px;
     line-height: 1.2;
   }
+
   .hero-desc {
     font-size: 13.5px;
     margin-bottom: 20px;
   }
+
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
     gap: 10px;
   }
+
   .hero-cta-group a {
     width: 100%;
     justify-content: center;
   }
+
   .hero-stats-row {
     grid-template-columns: 1fr;
     gap: 10px;
     text-align: center;
   }
+
   .hero-image-card img {
     height: 220px;
   }
@@ -2723,11 +2825,13 @@ button {
   }
 
   .category-tag-badge {
-    display: none; /* Hide category badge on mobile thumb to keep product image clean */
+    display: none;
+    /* Hide category badge on mobile thumb to keep product image clean */
   }
 
   .quick-view-overlay-btn {
-    display: none; /* Mobile users tap quick view icon below */
+    display: none;
+    /* Mobile users tap quick view icon below */
   }
 
   .product-content {
@@ -2747,7 +2851,8 @@ button {
   }
 
   .product-subtitle {
-    display: none; /* Keep 2-column cards clean and aligned */
+    display: none;
+    /* Keep 2-column cards clean and aligned */
   }
 
   .product-ratings {
@@ -2761,7 +2866,8 @@ button {
   }
 
   .size-label {
-    display: none; /* Save space on mobile */
+    display: none;
+    /* Save space on mobile */
   }
 
   .size-pills {
@@ -2854,44 +2960,56 @@ button {
   .visit-grid {
     grid-template-columns: 1fr;
   }
-  .store-info-box, .timings-card {
+
+  .store-info-box,
+  .timings-card {
     padding: 20px 16px;
   }
+
   .features-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .process-grid {
     grid-template-columns: 1fr;
     gap: 14px;
   }
+
   .quick-view-grid {
     grid-template-columns: 1fr;
   }
+
   .quick-view-media {
     border-right: none;
     border-bottom: 1px solid var(--border-light);
     padding: 16px;
   }
+
   .quick-view-media img {
     max-height: 200px;
   }
+
   .quick-view-info {
     padding: 16px;
     gap: 10px;
   }
+
   .cart-drawer {
     width: 100%;
   }
+
   .cart-drawer-footer {
     padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
   }
+
   .floating-whatsapp-pill {
     bottom: 16px;
     right: 16px;
     padding: 9px 14px;
     font-size: 12px;
   }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -2903,61 +3021,75 @@ button {
     width: 36px;
     height: 36px;
   }
+
   .brand-text h1 {
     font-size: 13.5px;
   }
+
   .brand-tagline {
     font-size: 10px;
   }
+
   .header-actions {
     gap: 6px;
   }
+
   .btn-nav-call {
     height: 36px;
     padding: 0 10px;
     font-size: 11.5px;
     gap: 4px;
   }
+
   .btn-cart-toggle {
     height: 36px;
     padding: 0 11px;
     font-size: 12px;
     gap: 5px;
   }
+
   .cart-count-badge {
     min-width: 18px;
     height: 18px;
     line-height: 18px;
     font-size: 10.5px;
   }
+
   .search-input-wrap {
     height: 38px;
     padding: 0 12px;
   }
+
   .search-input-wrap input {
     font-size: 12.5px;
   }
+
   .product-grid {
     gap: 8px !important;
   }
+
   .product-content {
     padding: 8px 6px;
   }
+
   .product-name {
     font-size: 12.5px;
   }
+
   .current-price {
     font-size: 15px;
   }
+
   .btn-add-to-cart {
     font-size: 11px;
     padding: 4px 6px;
   }
+
   .btn-add-to-cart span {
     font-size: 11px;
   }
+
   .btn-quick-view-sm {
     width: 30px;
   }
 }
-
